@@ -34,6 +34,7 @@ automaticamente. A página possui três blocos:
 HackerKnews/
 ├── index.html                 # Ponto de entrada
 ├── ROADMAP.md                 # Visão e fases
+├── AGENTS.md                  # Regras de operação do agente
 ├── DEV_PLAN.md                # Plano técnico
 ├── src/
 │   ├── js/
