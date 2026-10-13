@@ -2,10 +2,22 @@
 
 Jornal de notícias estático que busca as **top 10 histórias do Hacker News** em
 tempo real (API pública, sem autenticação) e as apresenta em um layout de jornal
-com estética de documento Markdown.
+com estética de documento Markdown e tema escuro.
 
 > Projeto-veículo do fluxo **AI-Native Engineers**: contexto → planejamento →
 > execução por fases → publicação.
+
+## Sobre este projeto
+
+Este projeto foi construído inteiramente a partir do terminal, com o auxílio de
+**CLIs de IA (agentes de código no terminal)** — especificamente o
+[opencode](https://opencode.ai) — e faz parte dos meus estudos do movimento
+**AI-Native Engineers** proposto em
+[ai-native-engineers.com](https://ai-native-engineers.com/).
+
+A ideia não é só entregar o jornal, mas praticar o fluxo de trabalho de um
+engenheiro AI-Native: dar **contexto**, **planejar** com `ROADMAP.md` e
+`DEV_PLAN.md`, **executar por fases** com apoio do agente e **publicar**.
 
 ## Demonstração
 
