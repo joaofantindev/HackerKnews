@@ -1,0 +1,8 @@
+/**
+ * main.css — agrega todas as folhas de estilo.
+ * Ordem importa: base → layout → componentes.
+ */
+
+@import './base.css';
+@import './layout.css';
+@import './newspaper.css';
