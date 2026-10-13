@@ -81,20 +81,38 @@ Depois acesse `http://localhost:8080`.
 
 ## Publicação (GitHub Pages)
 
-1. Crie o repositório e envie o código:
+O site é **buildless** (sem passo de build e sem pasta `dist`). O deploy é feito
+a partir da branch **`gh-pages`**, que contém os arquivos estáticos
+(`index.html`, `src/` e `.nojekyll`) na raiz da branch. A branch `main` mantém o
+código-fonte e a documentação.
+
+1. Envie o código-fonte para a `main`:
 
    ```powershell
-   git init
    git add .
    git commit -m "feat: jornal Hacker Knews"
-   git branch -M main
-   git remote add origin https://github.com/<usuario>/<repo>.git
-   git push -u origin main
+   git push origin main
    ```
 
-2. No GitHub: **Settings → Pages**.
-3. Em **Source**, selecione **Deploy from a branch** → branch `main` → pasta `/root`.
-4. Salve. O site ficará em `https://<usuario>.github.io/<repo>/`.
+2. Publique os arquivos estáticos na branch `gh-pages` (worktree temporário, sem
+   tocar na `main`):
+
+   ```powershell
+   git worktree add --detach ../hk-ghpages main
+   git -C ../hk-ghpages switch --orphan gh-pages
+   git -C ../hk-ghpages rm -rf --cached .
+   Copy-Item index.html ../hk-ghpages/
+   Copy-Item src ../hk-ghpages/src -Recurse
+   New-Item ../hk-ghpages/.nojekyll -ItemType File
+   git -C ../hk-ghpages add index.html src .nojekyll
+   git -C ../hk-ghpages commit -m "deploy: Hacker Knews static site"
+   git -C ../hk-ghpages push -f origin gh-pages
+   git worktree remove --force ../hk-ghpages
+   ```
+
+3. No GitHub: **Settings → Pages**.
+4. Em **Source**, selecione **Deploy from a branch** → branch `gh-pages` → pasta `/root`.
+5. Salve. O site ficará em `https://<usuario>.github.io/<repo>/`.
 
 ## Licença
 

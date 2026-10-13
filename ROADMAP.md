@@ -107,7 +107,12 @@ HackerKnews/
 
 ## Deployment Note
 
-GitHub Pages serves the repository directly from the `main` branch, root folder
-(`/`). No build or artifact folder is needed. Settings: **Settings → Pages →
-Deploy from a branch → `main` → `/root`**. The published URL will be
-`https://<user>.github.io/<repo>/`.
+The site is buildless, so there is no build command and no `dist/` folder.
+GitHub Pages publishes from the **`gh-pages`** branch, which contains the static
+files (`index.html`, `src/`, `.nojekyll`) at its root. The `main` branch keeps
+the source and the harness docs.
+
+Settings: **Settings → Pages → Deploy from a branch → `gh-pages` → `/root`**. The
+published URL will be `https://<user>.github.io/<repo>/`. All asset paths are
+relative, so the site works under the project subpath without extra base or
+public-path configuration.

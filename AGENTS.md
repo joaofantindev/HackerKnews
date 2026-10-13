@@ -94,12 +94,17 @@ document the exact command here.
 
 ## 6. Deployment Process
 
-GitHub Pages serves the site directly from the `main` branch, root folder (`/`).
-No build step and no output folder are required.
+The site is buildless, so the deploy branch contains the static files at its
+root. GitHub Pages publishes from the `gh-pages` branch; the `main` branch keeps
+the source and the harness docs.
 
-- Deploy branch: `main`
-- Output folder: `/` (repository root)
-- Configure in **Settings → Pages → Deploy from a branch → `main` → `/root`**.
+- Deploy branch: `gh-pages`
+- Output folder: `/` (branch root)
+- Content: `index.html`, `src/`, and `.nojekyll`
+- Because there is no build step, the deploy branch is a copy of the site files
+  (no `dist/`). All asset paths are relative, so they resolve under the project
+  subpath `https://<user>.github.io/<repo>/`.
+- Configure in **Settings → Pages → Deploy from a branch → `gh-pages` → `/root`**.
 - Published URL: `https://<user>.github.io/<repo>/`.
 
 ## 7. What NOT To Do
